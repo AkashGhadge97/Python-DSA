@@ -30,3 +30,25 @@ print(myList)
 #Add new list at the end of the list
 myList.extend([111,222,333])
 print(myList)
+
+#Slice/Delete from a list
+newList = ['a','b','c','d','e']
+print(newList[:])
+
+print(newList[3:5])
+
+#Deleting element based on index
+newList.pop(3)
+print(newList)
+
+#Deleting element based on value of element
+newList.remove('b')
+print(newList)
+
+#Deleting anelement using del command
+del newList[0]
+print(newList)
+
+#Deleting using slicing
+del newList[0:]
+print(newList)
