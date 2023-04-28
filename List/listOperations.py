@@ -52,3 +52,22 @@ print(newList)
 #Deleting using slicing
 del newList[0:]
 print(newList)
+
+#Searching an element in a list
+myList = [10,20,30,40,50,60,70,80,90]
+
+#Using 'in' operator
+if 20 in myList:
+    print('Index of element:',myList.index(20))
+else:
+    print('Value does not exists in a list')
+
+#linear search
+
+def searchElement(list,value):
+    for i in list:
+        if i == value:
+            return list.index(i)
+    return "Value does not exists in a list"
+
+print(searchElement(myList, 200))
