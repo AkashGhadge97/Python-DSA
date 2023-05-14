@@ -7,8 +7,7 @@ def maxProduct(arr):
 
 print("Max Product :",maxProduct(arr))
 
-#Solution without any in-built function - T.C =  O(n)  | S.C -  O(1clear
-# )
+#Solution without any in-built function - T.C =  O(n)  | S.C -  O(1)
 
 def max_product(arr):
     max1,max2 = 0, 0
