@@ -1,5 +1,6 @@
 #Given 2D list calculate the sum of diagonal elements.
 
+#T.C - O(n)
 def diagonal_sum(matrix):
     sum=0
     i=0
