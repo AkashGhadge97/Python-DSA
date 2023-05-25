@@ -8,6 +8,6 @@ def pair_sum(myList, sum):
         for j in range(i+1,len(myList)):
             if myList[i]+myList[j] == sum:
                 output.append(str(myList[i]) + '+' + str(myList[j]))
-    return output
+    return output 
 
 print(pair_sum([2, 4, 3, 5, 6, -2, 4, 7, 8, 9],7))
