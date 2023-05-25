@@ -1,5 +1,5 @@
 #Permutations
-#Given two list check of those are permutation of each other
+#Given two list check of those are permutation of each other 
 
 def check_permutation(list1,list2):
     if len(list1) != len(list2):
