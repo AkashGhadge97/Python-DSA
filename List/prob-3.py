@@ -5,6 +5,6 @@ def remove_duplicates(arr):
     for i in arr:
         if i not in newArr:
             newArr.append(i)
-    return newArr
+    return newArr 
 
 print(remove_duplicates([1, 1, 2, 2, 3, 4, 5]))
