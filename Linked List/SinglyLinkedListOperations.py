@@ -1,10 +1,10 @@
-# Clas to create a new node
+# Class to create a new node
 class Node:
     def __init__(self, value):
         self.value = value
         self.next = None
 
-
+# Class to create a Single Licked List
 class LinkedList:
 
     # Create Empty linked list
@@ -37,9 +37,26 @@ class LinkedList:
             self.tail = new_node
         self.length += 1
 
+    # Insert a node at the beginning of the linked list
+    def prepend(self, value):
+        new_node = Node(value)
+        if self.head is None:
+            self.head = new_node
+            self.tail = new_node
+        else:
+            new_node.next = self.head
+            self.head = new_node
+        self.length += 1
+
 
 new_linked_list = LinkedList()
 new_linked_list.append(10)
 new_linked_list.append(20)
 new_linked_list.append(30)
+
+new_linked_list.prepend(40)
+new_linked_list.prepend(50)
+
+new_linked_list.append(80)
+
 print(new_linked_list.__str__())
