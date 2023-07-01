@@ -1,4 +1,7 @@
 # Class to create a new node
+from random import randrange
+
+
 class Node:
     def __init__(self, value):
         self.value = value
@@ -48,6 +51,16 @@ class LinkedList:
             self.head = new_node
         self.length += 1
 
+    # Inserting a new node at given position
+    def insert_at_given_position(self, value, position):
+        new_node = Node(value)
+        temp_node = self.head
+        for _ in range(position-1):
+            temp_node = temp_node.next
+        new_node.next = temp_node.next
+        temp_node.next = new_node
+        self.length += 1
+
 
 new_linked_list = LinkedList()
 new_linked_list.append(10)
@@ -58,5 +71,9 @@ new_linked_list.prepend(40)
 new_linked_list.prepend(50)
 
 new_linked_list.append(80)
+print(new_linked_list.__str__())
+
+new_linked_list.insert_at_given_position(100, 2)
+print(new_linked_list.length)
 
 print(new_linked_list.__str__())
