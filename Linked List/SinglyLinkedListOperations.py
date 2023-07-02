@@ -82,12 +82,13 @@ class LinkedList:
     # Search and element in a single linked list |  T.C = O(n) S.C = O(1)
     def search(self, target):
         current = self.head
+        index = 0
         while (current is not None):
             if (current.value == target):
-                return True
-                break
+                return index
             current = current.next
-        return False
+            index += 1
+        return -1
 
 
 new_linked_list = LinkedList()
@@ -112,5 +113,3 @@ print(new_linked_list.length)
 
 print(new_linked_list.__str__())
 print(new_linked_list.traverse())
-
-new_linked_list.search(100)
