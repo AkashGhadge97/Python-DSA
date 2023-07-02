@@ -72,6 +72,23 @@ class LinkedList:
             temp_node.next = new_node
         self.length += 1
 
+    # Traversing a s singly linked list | T.C = O(n)  S.C = O(1)
+    def traverse(self):
+        current = self.head
+        while (current is not None):
+            print(current.value)
+            current = current.next
+
+    # Search and element in a single linked list |  T.C = O(n) S.C = O(1)
+    def search(self, target):
+        current = self.head
+        while (current is not None):
+            if (current.value == target):
+                return True
+                break
+            current = current.next
+        return False
+
 
 new_linked_list = LinkedList()
 new_linked_list.insert_at_given_position(350, 0)
@@ -89,6 +106,11 @@ print(new_linked_list.__str__())
 new_linked_list.insert_at_given_position(100, 2)
 new_linked_list.insert_at_given_position(450, 110)
 
+print(new_linked_list.search(100))
+
 print(new_linked_list.length)
 
 print(new_linked_list.__str__())
+print(new_linked_list.traverse())
+
+new_linked_list.search(100)
