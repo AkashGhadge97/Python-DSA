@@ -114,7 +114,7 @@ class LinkedList:
             current = current.next
         current.value = newValue
 
-    # Remove first element from linked list
+    # Remove first node from linked list
     def pop_first(self):
         if self.length == 0:
             print("Linked List is Empty!!")
@@ -125,10 +125,31 @@ class LinkedList:
             self.head = None
             self.tail = None
             self.length = 0
-            return popped_node
+            return popped_node.value
 
         self.head = self.head.next
         popped_node.next = None
+        self.length -= 1
+        return popped_node.value
+
+    # Remove the last node form linked list
+    def pop(self):
+        if self.length == 0:
+            print("Linked List is Empty!!")
+            return None
+
+        popped_node = self.tail
+        if self.length == 1:
+            self.head = None
+            self.tail = None
+            self.length = 0
+            return popped_node.value
+
+        current = self.head
+        while current.next is not self.tail:
+            current = current.next
+        self.tail = current
+        current.next = None
         self.length -= 1
         return popped_node.value
 
@@ -165,4 +186,7 @@ new_linked_list.set(3, 1000)
 print(new_linked_list.__str__())
 
 print("Popped Node : ", new_linked_list.pop_first())
+print(new_linked_list.__str__())
+
+print("Popped Node : ", new_linked_list.pop())
 print(new_linked_list.__str__())
