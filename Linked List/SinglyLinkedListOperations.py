@@ -89,6 +89,17 @@ class LinkedList:
             current = current.next
             index += 1
         return -1
+        
+    #Return the element at specified index
+    def get(self, index):
+        if index == -1:
+            return self.tail.value
+        if (index < -1 or index >= self.length):
+            return None
+        current = self.head
+        for _ in range(index):
+            current = current.next
+        return current.value
 
 
 new_linked_list = LinkedList()
@@ -104,6 +115,7 @@ new_linked_list.prepend(50)
 new_linked_list.append(80)
 print(new_linked_list.__str__())
 
+
 new_linked_list.insert_at_given_position(100, 2)
 new_linked_list.insert_at_given_position(450, 110)
 
@@ -113,3 +125,7 @@ print(new_linked_list.length)
 
 print(new_linked_list.__str__())
 print(new_linked_list.traverse())
+print(new_linked_list.get(3))
+print(new_linked_list.get(5))
+print(new_linked_list.get(11))
+print(new_linked_list.get(-1))
