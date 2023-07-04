@@ -9,6 +9,8 @@ class Node:
         self.next = None
 
 # Class to create a Single Licked List
+
+
 class LinkedList:
 
     # Create Empty linked list
@@ -112,6 +114,24 @@ class LinkedList:
             current = current.next
         current.value = newValue
 
+    # Remove first element from linked list
+    def pop_first(self):
+        if self.length == 0:
+            print("Linked List is Empty!!")
+            return None
+
+        popped_node = self.head
+        if self.length == 1:
+            self.head = None
+            self.tail = None
+            self.length = 0
+            return popped_node
+
+        self.head = self.head.next
+        popped_node.next = None
+        self.length -= 1
+        return popped_node.value
+
 
 new_linked_list = LinkedList()
 new_linked_list.insert_at_given_position(350, 0)
@@ -142,4 +162,7 @@ print(new_linked_list.get(11))
 print(new_linked_list.get(-1))
 
 new_linked_list.set(3, 1000)
+print(new_linked_list.__str__())
+
+print("Popped Node : ", new_linked_list.pop_first())
 print(new_linked_list.__str__())
