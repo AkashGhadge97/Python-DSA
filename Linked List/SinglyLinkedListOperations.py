@@ -153,6 +153,27 @@ class LinkedList:
         self.length -= 1
         return popped_node.value
 
+    #Remove node at specified index
+    def remove(self, index):
+        current = self.head
+        if index >= self.length or index < 0:
+            print("Please entre valid index")
+            return None
+
+        if index == self.length - 1:
+            return self.pop()
+
+        if index == 0:
+            return self.pop_first()
+
+        for _ in range(index-1):
+            current = current.next
+        popped_node = current.next
+        current.next = popped_node.next
+        popped_node.next = None
+        self.length -= 1
+        return popped_node.value
+
 
 new_linked_list = LinkedList()
 new_linked_list.insert_at_given_position(350, 0)
@@ -189,4 +210,11 @@ print("Popped Node : ", new_linked_list.pop_first())
 print(new_linked_list.__str__())
 
 print("Popped Node : ", new_linked_list.pop())
+print(new_linked_list.__str__())
+
+
+print("Removed Node : ", new_linked_list.remove(3))
+print(new_linked_list.__str__())
+
+print(new_linked_list.remove(4))
 print(new_linked_list.__str__())
