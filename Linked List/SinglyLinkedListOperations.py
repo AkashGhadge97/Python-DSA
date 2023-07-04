@@ -1,4 +1,5 @@
 # Class to create a new node
+from operator import length_hint
 from random import randrange
 
 
@@ -8,8 +9,6 @@ class Node:
         self.next = None
 
 # Class to create a Single Licked List
-
-
 class LinkedList:
 
     # Create Empty linked list
@@ -89,8 +88,8 @@ class LinkedList:
             current = current.next
             index += 1
         return -1
-        
-    #Return the element at specified index
+
+    # Return the element at specified index
     def get(self, index):
         if index == -1:
             return self.tail.value
@@ -100,6 +99,18 @@ class LinkedList:
         for _ in range(index):
             current = current.next
         return current.value
+
+    # Set new value for the node
+    def set(self, index, newValue):
+        if index == -1:
+            self.tail.value = newValue
+        if (index < -1 or index >= self.length):
+            print("Please enter valid index")
+            return None
+        current = self.head
+        for _ in range(index):
+            current = current.next
+        current.value = newValue
 
 
 new_linked_list = LinkedList()
@@ -129,3 +140,6 @@ print(new_linked_list.get(3))
 print(new_linked_list.get(5))
 print(new_linked_list.get(11))
 print(new_linked_list.get(-1))
+
+new_linked_list.set(3, 1000)
+print(new_linked_list.__str__())
