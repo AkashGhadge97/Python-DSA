@@ -1,4 +1,5 @@
 # Class to create a new node
+from ast import Delete
 from operator import length_hint
 from random import randrange
 
@@ -153,14 +154,14 @@ class LinkedList:
         self.length -= 1
         return popped_node.value
 
-    #Remove node at specified index
+    # Remove node at specified index
     def remove(self, index):
         current = self.head
-        if index >= self.length or index < 0:
+        if index >= self.length or index < -1:
             print("Please entre valid index")
             return None
 
-        if index == self.length - 1:
+        if index == self.length - 1 or index == -1:
             return self.pop()
 
         if index == 0:
@@ -173,6 +174,12 @@ class LinkedList:
         popped_node.next = None
         self.length -= 1
         return popped_node.value
+
+    #Delete complete linked list
+    def delete_all(self):
+        self.head = None
+        self.tail = None
+        self.length = 0
 
 
 new_linked_list = LinkedList()
@@ -217,4 +224,7 @@ print("Removed Node : ", new_linked_list.remove(3))
 print(new_linked_list.__str__())
 
 print(new_linked_list.remove(4))
+print(new_linked_list.__str__())
+
+new_linked_list.delete_all()
 print(new_linked_list.__str__())
