@@ -182,6 +182,7 @@ class LinkedList:
         self.tail = None
         self.length = 0
 
+    # Reverse the singly linked list - T.C : O(n) S.C : O(1)
     def reverse(self):
         prev_node = None
         current_node = self.head
@@ -192,7 +193,7 @@ class LinkedList:
             current_node = next_node
         self.head, self.tail = self.tail, self.head
 
-    # Find the the middle node of the linked list
+    # Find the the middle node of the linked list - - T.C : O(n) S.C : O(1)
     def find_middle(self):
         slow = self.head
         fast = self.head
