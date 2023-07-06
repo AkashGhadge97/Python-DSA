@@ -181,6 +181,7 @@ class LinkedList:
         self.tail = None
         self.length = 0
 
+    # Reverse the singly linked list - T.C : O(n)   S.C : O(1)
     def reverse(self):
         prev_node = None
         current_node = self.head
