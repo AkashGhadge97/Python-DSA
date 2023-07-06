@@ -2,6 +2,7 @@
 from ast import Delete
 from operator import length_hint
 from random import randrange
+import math
 
 
 class Node:
@@ -181,7 +182,6 @@ class LinkedList:
         self.tail = None
         self.length = 0
 
-    # Reverse the singly linked list - T.C : O(n)   S.C : O(1)
     def reverse(self):
         prev_node = None
         current_node = self.head
@@ -191,6 +191,15 @@ class LinkedList:
             prev_node = current_node
             current_node = next_node
         self.head, self.tail = self.tail, self.head
+
+    # Find the the middle node of the linked list
+    def find_middle(self):
+        slow = self.head
+        fast = self.head
+        while fast is not None and fast.next is not None:
+            slow = slow.next
+            fast = fast.next.next
+        return slow.value
 
 
 new_linked_list = LinkedList()
@@ -202,8 +211,8 @@ new_linked_list.append(30)
 
 new_linked_list.prepend(40)
 new_linked_list.prepend(50)
-
-new_linked_list.append(80)
+new_linked_list.prepend(500)
+# new_linked_list.append(80)
 print(new_linked_list.__str__())
 
 
@@ -240,6 +249,9 @@ print(new_linked_list.__str__())
 new_linked_list.delete_all()
 print(new_linked_list.__str__())
 
-# Please comment above lines with remove() ,pop(), pop_first() and delete_all() function in order to see the proper result of reverse() function 
+# Please comment above lines with remove() ,pop(), pop_first() and delete_all() function in order to see the proper result of next function calls
+
 new_linked_list.reverse()
 print("Reversed Linked List : ", new_linked_list.__str__())
+
+print("Middle node is : ", new_linked_list.find_middle())
