@@ -175,11 +175,21 @@ class LinkedList:
         self.length -= 1
         return popped_node.value
 
-    #Delete complete linked list
+    # Delete complete linked list
     def delete_all(self):
         self.head = None
         self.tail = None
         self.length = 0
+
+    def reverse(self):
+        prev_node = None
+        current_node = self.head
+        while current_node is not None:
+            next_node = current_node.next
+            current_node.next = prev_node
+            prev_node = current_node
+            current_node = next_node
+        self.head, self.tail = self.tail, self.head
 
 
 new_linked_list = LinkedList()
@@ -228,3 +238,7 @@ print(new_linked_list.__str__())
 
 new_linked_list.delete_all()
 print(new_linked_list.__str__())
+
+# Please comment above lines with remove() ,pop(), pop_first() and delete_all() function in order to see the proper result of reverse() function 
+new_linked_list.reverse()
+print("Reversed Linked List : ", new_linked_list.__str__())
