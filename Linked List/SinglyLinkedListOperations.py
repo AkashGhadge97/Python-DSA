@@ -1,18 +1,15 @@
-# Class to create a new node
 from ast import Delete
 from operator import length_hint
 from random import randrange
 import math
 
-
+# Class to create a new node
 class Node:
     def __init__(self, value):
         self.value = value
         self.next = None
 
 # Class to create a Single Licked List
-
-
 class LinkedList:
 
     # Create Empty linked list
